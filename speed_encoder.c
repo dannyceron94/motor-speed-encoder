@@ -57,7 +57,7 @@ int activate(int rot){
             tempCount = tempCount-1;
         }
         exitCount++;
-        if(exitCount>100){
+        if(exitCount>10000000){
             break;
         }
        
