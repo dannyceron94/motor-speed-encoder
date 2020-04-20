@@ -57,10 +57,6 @@ int activate(int rot){
             tempCount = tempCount-1;
         }
         
-        if(pinnn>0){
-            exitCount++;
-            if(exitCount>100000){break;}
-        }
     }
     return 0;
 }
