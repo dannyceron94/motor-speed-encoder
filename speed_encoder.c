@@ -53,7 +53,7 @@ int activate(int rot){
     while(tempCount>0){
         printf("%d",digitalRead(Gpin));
         if(digitalRead(Gpin)==0){
-            printf("%d",digitalRead(Gpin));
+            printf("%d\n",digitalRead(Gpin));
             tempCount = tempCount-1;
         }
         
