@@ -37,21 +37,21 @@ int init_encoder(int pinNum){
         return-1;
     }
     Gpin = pinNum;
-    pinMode(pinNum,INPUT);
-    digitalWrite(pinNum, HIGH);
-    digitalWrite(pinNum, LOW);
+    pinMode(Gpin,INPUT);
+    // digitalWrite(Gpin, HIGH);
+    // digitalWrite(Gpin, LOW);
 
     return 0;
 }
 
 int activate(int rot){
-    init_encoder(21);
+    init_encoder(20);
     printf("%d\n",Gpin);
     int tempCount = rot;
     int exitCount;
     while(tempCount>0){
         int pinnn = digitalRead(Gpin);
-        printf("%d, ",pinnn);
+        printf(" digitalRead(Gpin)=%d, ",pinnn);
         if(pinnn==0){
             tempCount = tempCount-1;
         }
