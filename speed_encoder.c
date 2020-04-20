@@ -44,10 +44,15 @@ int init_encoder(int pinNum){
 int activate(int rot){
     init_encoder(21);
     int tempCount = rot;
+    int exitCount;
     while(tempCount>0){
         if(digitalRead(Gpin)==0){
             
             tempCount = tempCount-1;
+        }
+        exitCount++;
+        if(exitCount>100){
+            break;
         }
         printf("%d",digitalRead(Gpin));
     }
