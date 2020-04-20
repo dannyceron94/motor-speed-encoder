@@ -45,7 +45,7 @@ int activate(int rot){
     init_encoder(21);
     int tempCount = rot;
     while(tempCount>0){
-        if(digitalRead(Gpin)>0){
+        if(digitalRead(Gpin)==0){
             
             tempCount = tempCount-1;
         }
