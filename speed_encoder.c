@@ -56,6 +56,7 @@ int activate(int rot){
         if(pinnn==0){
             printf("%d\n",digitalRead(Gpin));
             tempCount = tempCount-1;
+            printf("%d",tempCount);
         }
         
         if(pinnn>0){
