@@ -8,7 +8,7 @@
 #include "speed_encoder.h"
 int main() {
    // run(4);
-   hello()
+   hello();
 
    printf("Hello, World!");
    return 0;
