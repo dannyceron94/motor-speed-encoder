@@ -12,7 +12,7 @@ int main() {
    int m2 = init("motor2","config1");
    allForward(15);
   
-   activate(100);
+   activate(1000);
    sleep(1);
    stopAll();
    printf("Hello, World!");

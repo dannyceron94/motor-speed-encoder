@@ -59,7 +59,7 @@ int activate(int rot){
         
         if(pinnn>0){
             exitCount++;
-            if(exitCount>100){break;}
+            if(exitCount>100000){break;}
         }
     }
     return 0;
