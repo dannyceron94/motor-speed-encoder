@@ -49,7 +49,7 @@ int activate(int rot){
             
             tempCount = tempCount-1;
         }
-        printf("%d"digitalRead(Gpin));
+        printf("%d",digitalRead(Gpin));
     }
     return 0;
 }
