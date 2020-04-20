@@ -56,9 +56,10 @@ int activate(int rot){
             
             tempCount = tempCount-1;
         }
-        exitCount++;
-        if(exitCount>10000000000000000000000){
-            break;
+        
+        if(digitalRead(Gpin)>0){
+            
+           exitCount++;
         }
        
     }
