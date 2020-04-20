@@ -41,7 +41,7 @@ int init(int pinNum){
 }
 
 int activate(int rot){
-    init();
+    init(21);
     int tempCount;
     while(rot>0){
         if(digitalRead(Gpin)>0){
