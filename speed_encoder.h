@@ -7,4 +7,6 @@
 #include <string.h>
 
 void hello();
+int init(int);
+int activate(int);
 #endif // FOO_H_

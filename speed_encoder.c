@@ -25,6 +25,28 @@
 #include <stdio.h>
 
 
+int Gpin;
 void hello(){
     printf("hello from the speed_encoder file");
+}
+
+int init(int pinNum){
+    if(wiringPiSetup()<0){
+
+        printf("WiringPiSetUp failed");
+        return-1;
+    }
+    Gpin = pinNum;
+    pinMode(pinNum,INPUT);
+}
+
+int activate(int rot){
+    init();
+    int tempCount;
+    while(rot>0){
+        if(digitalRead(Gpin)>0){
+            tempCount = tempCount-1;
+        }
+    }
+    return 0;
 }

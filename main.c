@@ -8,8 +8,11 @@
 #include "speed_encoder.h"
 int main() {
    // run(4);
-   hello();
-
+   int m1 = init("motor1","config2");
+   int m2 = init("motor2","config1");
+   allForward(30);
+   activate(83);
+   stopAll();
    printf("Hello, World!");
    return 0;
 }
