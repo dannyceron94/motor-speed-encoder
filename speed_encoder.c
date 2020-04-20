@@ -38,6 +38,11 @@ int init_encoder(int pinNum){
     }
     Gpin = pinNum;
     pinMode(pinNum,INPUT);
+
+
+
+
+
     return 0;
 }
 
@@ -46,6 +51,7 @@ int activate(int rot){
     int tempCount = rot;
     int exitCount;
     while(tempCount>0){
+        printf("%d",digitalRead(Gpin));
         if(digitalRead(Gpin)==0){
             
             tempCount = tempCount-1;
@@ -54,7 +60,7 @@ int activate(int rot){
         if(exitCount>100){
             break;
         }
-        printf("%d",digitalRead(Gpin));
+       
     }
     return 0;
 }
