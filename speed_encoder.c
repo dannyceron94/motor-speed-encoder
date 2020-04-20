@@ -45,6 +45,7 @@ int init_encoder(int pinNum){
 
 int activate(int rot){
     init_encoder(21);
+    printf("%d\n",Gpin);
     int tempCount = rot;
     int exitCount;
     while(tempCount>0){
@@ -57,7 +58,8 @@ int activate(int rot){
         
         if(pinnn>0){
             printf("%d",pinnn);
-           exitCount++;
+            exitCount++;
+            if(exitCount>100){break;}
         }
     }
     return 0;
