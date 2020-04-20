@@ -45,7 +45,7 @@ int init_encoder(int pinNum){
 }
 
 int activate(int rot){
-    init_encoder(20);
+    init_encoder(28);
     printf("%d\n",Gpin);
     int tempCount = rot;
     int exitCount;
