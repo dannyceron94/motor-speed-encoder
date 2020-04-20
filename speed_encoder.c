@@ -43,8 +43,8 @@ int init_encoder(int pinNum){
 
 int activate(int rot){
     init_encoder(21);
-    int tempCount;
-    while(rot>0){
+    int tempCount = rot;
+    while(tempCount>0){
         if(digitalRead(Gpin)>0){
             tempCount = tempCount-1;
         }
