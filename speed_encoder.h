@@ -7,6 +7,6 @@
 #include <string.h>
 
 void hello();
-int init(int);
+int init_encoder(int);
 int activate(int);
 #endif // FOO_H_

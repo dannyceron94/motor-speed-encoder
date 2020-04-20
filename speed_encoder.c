@@ -30,7 +30,7 @@ void hello(){
     printf("hello from the speed_encoder file");
 }
 
-int init(int pinNum){
+int init_encoder(int pinNum){
     if(wiringPiSetup()<0){
 
         printf("WiringPiSetUp failed");
@@ -42,7 +42,7 @@ int init(int pinNum){
 }
 
 int activate(int rot){
-    init(21);
+    init_encoder(21);
     int tempCount;
     while(rot>0){
         if(digitalRead(Gpin)>0){
