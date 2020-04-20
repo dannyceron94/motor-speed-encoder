@@ -39,6 +39,7 @@ int init_encoder(int pinNum){
     Gpin = pinNum;
     pinMode(pinNum,INPUT);
     digitalWrite(pinNum, HIGH);
+    digitalWrite(pinNum, LOW);
 
     return 0;
 }
