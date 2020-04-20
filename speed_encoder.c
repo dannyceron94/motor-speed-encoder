@@ -38,7 +38,7 @@ int init_encoder(int pinNum){
     }
     Gpin = pinNum;
     pinMode(pinNum,INPUT);
-    //digitalWrite(pinNum, HIGH);
+    digitalWrite(pinNum, HIGH);
 
     return 0;
 }
@@ -50,15 +50,12 @@ int activate(int rot){
     int exitCount;
     while(tempCount>0){
         int pinnn = digitalRead(Gpin);
-        printf("%d\n",pinnn);
+        printf("%d, ",pinnn);
         if(pinnn==0){
-            printf("%d\n",pinnn);
             tempCount = tempCount-1;
-            printf("%d",tempCount);
         }
         
         if(pinnn>0){
-            printf("%d",pinnn);
             exitCount++;
             if(exitCount>100){break;}
         }
