@@ -48,15 +48,17 @@ int activate(int rot){
     init_encoder(28);
     printf("%d\n",Gpin);
     int tempCount = rot;
-    int exitCount;
+    int exitCount=0;
     while(tempCount>0){
         int pinnn = 0;
         pinnn = digitalRead(Gpin);
-        printf(" digitalRead(Gpin)=%d, ",pinnn);
+        printf("=%d, ",pinnn);
         if(pinnn==0){
             tempCount = tempCount-1;
+            exitCount++;
         }
         
     }
+    printf(exitCount);
     return 0;
 }
