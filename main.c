@@ -11,8 +11,9 @@ int main() {
    int m1 = init("motor1","config2");
    int m2 = init("motor2","config1");
    allForward(20);
-   sleep(1);
+  
    activate(100);
+   sleep(1);
    stopAll();
    printf("Hello, World!");
    return 0;
