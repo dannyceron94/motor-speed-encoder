@@ -38,6 +38,7 @@ int init(int pinNum){
     }
     Gpin = pinNum;
     pinMode(pinNum,INPUT);
+    return 0;
 }
 
 int activate(int rot){
