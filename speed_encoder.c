@@ -65,7 +65,7 @@ int activate(int rot){
             clock_t end = clock();
             float seconds = (float)(end - start) / CLOCKS_PER_SEC;
             //calculateing speed
-            float angularSpeed =  (2*PI)/seconds
+            float angularSpeed =  (2*PI)/seconds;
             printf("%f",angularSpeed);
             // resetting values for next calculation
             tempCount = 0;
