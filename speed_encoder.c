@@ -57,7 +57,6 @@ int activate(int rot){
             tempCount = tempCount-1;
             exitCount++;
         }
-        
     }
     printf(exitCount);
     return 0;
