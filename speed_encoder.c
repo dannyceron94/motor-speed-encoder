@@ -58,6 +58,6 @@ int activate(int rot){
             exitCount++;
         }
     }
-    printf(exitCount);
+    printf("total rotations%d ",exitCount/18);
     return 0;
 }
