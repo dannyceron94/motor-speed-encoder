@@ -50,8 +50,6 @@ int init_encoder(int pinNum){
 
 int activate(int rot){
     init_encoder(28);
-    printf("%d\n",Gpin);
-    // int tempCount = rot;
     int exitCount=0;
     int quit=0;
     clock_t start = clock();
@@ -69,12 +67,10 @@ int activate(int rot){
             printf("%f\n",angularSpeed);
             // resetting values for next calculation
             exitCount = 0;
-            clock_t start = clock();
             quit++;
+            clock_t start = clock();
         }
-        if(quit>10){break;}
-
+        if(quit>20){break;}
     }
-    printf("total rotations%d ",exitCount/18);
     return 0;
 }
