@@ -18,11 +18,15 @@
 *          https://github.com/sbcshop/MotorShield/blob/master/PiMotor.py
 **************************************************************/
 #include "speed_encoder.h"
+
 #include <stdlib.h>
 #include <wiringPi.h>
 #include <time.h>
 #include <string.h>
 #include <stdio.h>
+#include<time.h>
+
+#define PI 3.14159265358979323846
 
 
 int Gpin;
@@ -49,14 +53,27 @@ int activate(int rot){
     printf("%d\n",Gpin);
     int tempCount = rot;
     int exitCount=0;
-    while(tempCount>0){
+    int quit=0;
+    clock_t start = clock();
+    while(1){
         int pinnn = 0;
         pinnn = digitalRead(Gpin);
-        printf("=%d, ",pinnn);
         if(pinnn==0){
-            tempCount = tempCount-1;
             exitCount++;
         }
+        if(exitCount==0){
+            clock_t end = clock();
+            float seconds = (float)(end - start) / CLOCKS_PER_SEC;
+            //calculateing speed
+            float angularSpeed =  (2*PI)/seconds
+            printf("%f",angularSpeed);
+            // resetting values for next calculation
+            tempCount = 0;
+            clock_t start = clock();
+            quit++;
+        }
+        if(quit>10){break;}
+
     }
     printf("total rotations%d ",exitCount/18);
     return 0;
