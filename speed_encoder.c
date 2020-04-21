@@ -61,7 +61,7 @@ int activate(int rot){
         if(pinnn==0){
             exitCount++;
         }
-        if(exitCount==0){
+        if(exitCount==18){
             clock_t end = clock();
             float seconds = (float)(end - start) / CLOCKS_PER_SEC;
             //calculateing speed
