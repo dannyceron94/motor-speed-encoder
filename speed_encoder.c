@@ -51,7 +51,7 @@ int init_encoder(int pinNum){
 int activate(int rot){
     init_encoder(28);
     printf("%d\n",Gpin);
-    int tempCount = rot;
+    // int tempCount = rot;
     int exitCount=0;
     int quit=0;
     clock_t start = clock();
@@ -61,14 +61,14 @@ int activate(int rot){
         if(pinnn==0){
             exitCount++;
         }
-        if(exitCount==18){
+        if(exitCount==rot){
             clock_t end = clock();
             float seconds = (float)(end - start) / CLOCKS_PER_SEC;
             //calculateing speed
             float angularSpeed =  (2*PI)/seconds;
             printf("%f\n",angularSpeed);
             // resetting values for next calculation
-            tempCount = 0;
+            exitCount = 0;
             clock_t start = clock();
             quit++;
         }
