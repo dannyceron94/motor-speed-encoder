@@ -71,13 +71,16 @@ int init_LSI(int miso, int mosi, int sclk){
     // pinMode(SCLK,OUTPUT);
 }
 
-// void clearLSI(){
-//     char buff[0] = 0x76;
-//     if(wiringPiSPIDataRW (CHANNEL, buff, 1)<0){
-//         printf("SPI Data error");
-//     }
-//     sleep(5);
-// }
+void clearLSI(){
+    // char buff[0] = 0x76;
+    char* send =  (char*) malloc(5 * sizeof(char));
+    if(wiringPiSPIDataRW (CHANNEL, send, 1)<0){
+        printf("SPI Data error");
+        return -1;
+    }
+    sleep(5);
+    return 0;
+}
 
 int activate(int rot){
     init_encoder(28);

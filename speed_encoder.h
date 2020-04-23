@@ -12,4 +12,5 @@ int init_encoder(int);
 int activate(int);
 int init_LSI(int,int,int);
 int active_LSI();
+int clearLSI();
 #endif // FOO_H_
