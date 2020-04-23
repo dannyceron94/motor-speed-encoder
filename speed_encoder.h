@@ -5,8 +5,11 @@
 #include <wiringPi.h>
 #include <time.h>
 #include <string.h>
+#include <wiringPiSPI.h>
 
-void hello();
+
 int init_encoder(int);
 int activate(int);
+int init_LSI(int,int,int);
+int active_LSI();
 #endif // FOO_H_

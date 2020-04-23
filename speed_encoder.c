@@ -25,18 +25,20 @@
 #include <string.h>
 #include <stdio.h>
 #include<time.h>
+#include <wiringPiSPI.h>
 
 #define PI 3.14159265358979323846
 
 
 int Gpin;
-void hello(){
-    printf("hello from the speed_encoder file");
-}
+int MISO;
+int MOSI;
+int SCLK;
+static const int CHANNEL=1;
+int max_speed_hz = 500000;
 
 int init_encoder(int pinNum){
     if(wiringPiSetup()<0){
-
         printf("WiringPiSetUp failed");
         return-1;
     }
@@ -44,8 +46,37 @@ int init_encoder(int pinNum){
     pinMode(Gpin,INPUT);
     // digitalWrite(Gpin, HIGH);
     // digitalWrite(Gpin, LOW);
-
     return 0;
+}
+
+int init_LSI(int miso, int mosi, int sclk){
+    if(wiringPiSetup()<0){
+        printf("WiringPiSetUp failed");
+        return-1;
+    }
+    MISO = miso;
+    MOSI = mosi;
+    SCLK = sclk;
+    // Configure the interface.
+   // CHANNEL insicates chip select,
+   // 500000 indicates bus speed.
+    int fd = swiringPiSPISetup (CHANNEL, max_speed_hz)
+    if(fd<0){
+        printf("SPI setup error");
+    };
+    printf("Init result: %d",fd);
+    clearLSI();
+    // pinMode(MISO,OUTPUT);
+    // pinMode(MOSI,INPPUT);
+    // pinMode(SCLK,OUTPUT);
+}
+
+void clearLSI(){
+    char buff[0] = 0x76;
+    if(wiringPiSPIDataRW (CHANNEL, buff, 1)<0){
+        printf("SPI Data error");
+    }
+    sleep(5);
 }
 
 int activate(int rot){
@@ -72,5 +103,14 @@ int activate(int rot){
         }
         if(quit>20){break;}
     }
+    return 0;
+}
+
+int active_LSI(){
+    // the size of 5bytes for the LS7366R data
+    char* send =  (char*) malloc(5 * sizeof(char));
+    init_LSI(12,13,14);
+    wiringPiSPIDataRW (CHANNEL, send, 1);
+    printf(send);
     return 0;
 }
