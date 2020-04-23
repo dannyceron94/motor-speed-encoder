@@ -71,7 +71,7 @@ int init_LSI(int miso, int mosi, int sclk){
     // pinMode(SCLK,OUTPUT);
 }
 
-void clearLSI(){
+int clearLSI(){
     // char buff[0] = 0x76;
     char* send =  (char*) malloc(5 * sizeof(char));
     if(wiringPiSPIDataRW (CHANNEL, send, 1)<0){
