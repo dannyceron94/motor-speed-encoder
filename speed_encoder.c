@@ -60,7 +60,7 @@ int init_LSI(int miso, int mosi, int sclk){
     // Configure the interface.
    // CHANNEL insicates chip select,
    // 500000 indicates bus speed.
-    int fd = swiringPiSPISetup (CHANNEL, max_speed_hz);
+    int fd = wiringPiSPISetup (CHANNEL, max_speed_hz);
     if(fd<0){
         printf("SPI setup error");
     };
