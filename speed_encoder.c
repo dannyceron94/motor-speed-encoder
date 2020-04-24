@@ -64,7 +64,7 @@ int init_LSI(int miso, int mosi, int sclk){
     if(fd<0){
         printf("SPI setup error");
     };
-    printf("Init result: %d",fd);
+    printf("Init result: %d\n",fd);
     clearLSI();
     // pinMode(MISO,OUTPUT);
     // pinMode(MOSI,INPPUT);
@@ -113,7 +113,7 @@ int active_LSI(){
     // the size of 5bytes for the LS7366R data
     char* send =  (char*) malloc(5 * sizeof(char));
     init_LSI(12,13,14);
-    wiringPiSPIDataRW (CHANNEL, send, 1);
+    print(wiringPiSPIDataRW (CHANNEL, send, 1));
     printf(send);
     return 0;
 }
