@@ -35,7 +35,7 @@ int MISO;
 int MOSI;
 int SCLK;
 static const int CHANNEL=0;
-int max_speed_hz = 250000;
+int max_speed_hz = 5000000;
 
 int init_encoder(int pinNum){
     if(wiringPiSetup()<0){
