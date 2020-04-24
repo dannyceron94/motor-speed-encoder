@@ -113,8 +113,9 @@ int active_LSI(){
     // the size of 5bytes for the LS7366R data
     char* send =  (char*) malloc(5 * sizeof(char));
     send[0] ='0';
+    unsigned char a=0x00;
     init_LSI(12,13,14);
-    printf("%d\n",wiringPiSPIDataRW (CHANNEL, send, 4));
-    printf("%s",send);
+    printf("%d\n",wiringPiSPIDataRW (CHANNEL, a, 4));
+    printf("%x",a);
     return 0;
 }
