@@ -114,9 +114,11 @@ int active_LSI(){
     char* send =  (char*) malloc(5 * sizeof(char));
     send[0] ='0';
     unsigned char* a=0x00;
+    a[0]='0';
     init_LSI(12,13,14);
     printf("%d\n",wiringPiSPIDataRW (CHANNEL,a,4));
     printf("hex%x\n",a);
     printf("%c",a[0]);
+    
     return 0;
 }
