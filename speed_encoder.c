@@ -114,6 +114,6 @@ int active_LSI(){
     char* send =  (char*) malloc(5 * sizeof(char));
     init_LSI(12,13,14);
     printf("%d\n",wiringPiSPIDataRW (CHANNEL, send, 4));
-    printf(send);
+    printf("%s",send);
     return 0;
 }
