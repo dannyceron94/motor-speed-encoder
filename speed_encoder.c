@@ -115,7 +115,7 @@ int active_LSI(){
     send[0] ='0';
     unsigned char* a=0x00;
     init_LSI(12,13,14);
-    printf("%d\n",wiringPiSPIDataRW (CHANNEL, a, 4));
+    printf("%d\n",wiringPiSPIDataRW (CHANNEL,a));
     printf("hex%x\n",a);
     printf("%c",a[0]);
     return 0;
