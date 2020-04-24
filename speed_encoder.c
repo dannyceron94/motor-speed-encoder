@@ -34,8 +34,8 @@ int Gpin;
 int MISO;
 int MOSI;
 int SCLK;
-static const int CHANNEL=1;
-int max_speed_hz = 500000;
+static const int CHANNEL=0;
+int max_speed_hz = 250000;
 
 int init_encoder(int pinNum){
     if(wiringPiSetup()<0){
@@ -115,7 +115,7 @@ int active_LSI(){
     send[0] ='0';
     unsigned char* a=0x00;
     init_LSI(12,13,14);
-    printf("%d\n",wiringPiSPIDataRW (CHANNEL,a));
+    printf("%d\n",wiringPiSPIDataRW (CHANNEL,a,4));
     printf("hex%x\n",a);
     printf("%c",a[0]);
     return 0;
