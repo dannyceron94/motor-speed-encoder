@@ -61,7 +61,7 @@ int activate(int rot){
     while(1){
         int signal  = digitalRead(Gpin);
         if(signal == prevws_value){
-             printf("%d\n",prevws_value);
+            //  printf("%d\n",prevws_value);
             continue;}
         if(signal==1 && signal != prevws_value){
             exitCount++;
