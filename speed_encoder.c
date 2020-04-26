@@ -49,6 +49,37 @@ int init_encoder(int pinNum){
     return 0;
 }
 
+
+int activate(int rot){
+    init_encoder(28);
+    int exitCount=0;
+    int quit=0;
+    int prevws_value = 0
+    clock_t start = clock();
+    while(1){
+        int signal = 0;
+        signal = digitalRead(Gpin);
+        if(signal==1 && signal != prevws_value){
+            exitCount++;
+        }
+        if(exitCount==rot){
+            clock_t end = clock();
+            float seconds = (float)(end - start) / CLOCKS_PER_SEC;
+            //calculateing speed
+            float angularSpeed =  (2*PI)/seconds;
+            printf("%f cm/s,%f m/s %f km/s\n",angularSpeed*3,angularSpeed*0.03,angularSpeed*0.00003);
+            // resetting values for next calculation
+            exitCount = 0;
+            quit++;
+            clock_t start = clock();
+        }
+        if(quit>20){break;}
+        prevws_value = signal;
+    }
+    return 0;
+}
+
+// this part of the code does not work, cannot communitate to the LS7
 int init_LSI(int miso, int mosi, int sclk){
     if(wiringPiSetup()<0){
         printf("WiringPiSetUp failed");
@@ -82,33 +113,6 @@ int clearLSI(){
     return 0;
 }
 
-int activate(int rot){
-    init_encoder(28);
-    int exitCount=0;
-    int quit=0;
-    clock_t start = clock();
-    while(1){
-        int pinnn = 0;
-        pinnn = digitalRead(Gpin);
-        if(pinnn==0){
-            exitCount++;
-        }
-        if(exitCount==rot){
-            clock_t end = clock();
-            float seconds = (float)(end - start) / CLOCKS_PER_SEC;
-            //calculateing speed
-            float angularSpeed =  (2*PI)/seconds;
-            printf("%f cm/s,%f m/s %f km/s\n",angularSpeed*3,angularSpeed*0.03,angularSpeed*0.00003);
-            // resetting values for next calculation
-            exitCount = 0;
-            quit++;
-            clock_t start = clock();
-        }
-        if(quit>20){break;}
-    }
-    return 0;
-}
-
 int active_LSI(){
     // the size of 5bytes for the LS7366R data
     char* send =  (char*) malloc(5 * sizeof(char));
@@ -117,7 +121,7 @@ int active_LSI(){
     init_LSI(12,13,14);
     printf("%d\n",wiringPiSPIDataRW (CHANNEL,send,4));
     printf("hex%x\n",send);
-    printf("%n",send[0]);
+    printf("%n ",send[0]);
     
     return 0;
 }
