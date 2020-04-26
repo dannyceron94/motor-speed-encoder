@@ -54,7 +54,7 @@ int activate(int rot){
     init_encoder(28);
     int exitCount=0;
     int quit=0;
-    int prevws_value = 0
+    int prevws_value = 0;
     clock_t start = clock();
     while(1){
         int signal = 0;
