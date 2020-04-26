@@ -12,7 +12,7 @@ int main() {
    int m2 = init("motor2","config1");
    allForward(26);
   
-   activate(18);
+   activate(20);
    // active_LSI();
    sleep(1);
    stopAll();
