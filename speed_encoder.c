@@ -62,7 +62,7 @@ int activate(int rot){
         int signal  = digitalRead(Gpin);
         if(signal==1 && signal != prevws_value){
             exitCount++;
-            printf("%d",exitCount)
+            printf("%d",exitCount);
         }
         prevws_value = signal;
         if(exitCount==rot){
