@@ -13,7 +13,7 @@ int main() {
    allForward(26);
   
    activate(18);
-   active_LSI();
+   // active_LSI();
    sleep(1);
    stopAll();
    printf("Hello, World!");
