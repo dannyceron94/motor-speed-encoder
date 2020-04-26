@@ -59,11 +59,11 @@ int activate(int rot){
     int prevws_value = digitalRead(Gpin);
     clock_t start = clock();
     while(1){
-        int signal = 0;
-        signal = digitalRead(Gpin);
+        int signal  = digitalRead(Gpin);
         if(signal==1 && signal != prevws_value){
             exitCount++;
         }
+        prevws_value = signal;
         if(exitCount==rot){
             clock_t end = clock();
             float seconds = (float)(end - start) / CLOCKS_PER_SEC;
@@ -77,7 +77,7 @@ int activate(int rot){
             clock_t start = clock();
         }
         if(quit>20){break;}
-        prevws_value = signal;
+       
     }
     return 0;
 }
