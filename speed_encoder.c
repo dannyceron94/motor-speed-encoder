@@ -11,6 +11,8 @@
 *              one pins sets the modulation to specify the speed of the motor
 *              2 other pins are use pass current to make the motors rotate, depending on
 *              the direction of the current the motor will rotate backwards of forward.
+*              the a motor encoder sensor is hooked up the raspberrypi to read the actial peed
+*              of the wheel.
 *
 *
 *              
@@ -51,10 +53,10 @@ int init_encoder(int pinNum){
 
 
 int activate(int rot){
-    init_encoder(28);
+    init_encoder(18);
     int exitCount=0;
     int quit=0;
-    int prevws_value = 0;
+    int prevws_value = digitalRead(Gpin);
     clock_t start = clock();
     while(1){
         int signal = 0;
