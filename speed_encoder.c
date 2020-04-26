@@ -66,6 +66,7 @@ int activate(int rot){
             clock_t end = clock();
             float seconds = (float)(end - start) / CLOCKS_PER_SEC;
             //calculateing speed
+            // i could include the radius of the wheel but it might not me necesarry 
             float angularSpeed =  (2*PI)/seconds;
             printf("%f cm/s,%f m/s %f km/s\n",angularSpeed*3,angularSpeed*0.03,angularSpeed*0.00003);
             // resetting values for next calculation
