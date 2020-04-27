@@ -64,7 +64,7 @@ int activate(int rot){
             //  printf("%d\n",prevws_value);
             prevws_value = signal;
             continue;}
-        else if(signal==1 && signal != prevws_value){
+        else if(signal != prevws_value){
             exitCount++;
             printf("%d\n",exitCount);
         }
