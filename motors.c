@@ -159,10 +159,10 @@ int left(int i){
 }
 int right(int i){
     printf("→\nright\n");
-    foward(&motor1,15*i,"config1");
-    reverse(&motor2,15*i,"config2");
-    foward(&motor3,15*i,"config1");
-    reverse(&motor4,15*i,"config2");
+    foward(&motor1,i,"config1");
+    reverse(&motor2,i,"config2");
+    foward(&motor3,i,"config1");
+    reverse(&motor4,i,"config2");
     return 0;
 }
 int stopAll(){

@@ -10,7 +10,7 @@ int main() {
    // run(4);
    int m1 = init("motor1","config2");
    int m2 = init("motor2","config1");
-   allForward(27);
+   allForward(40);
   
    activate(20);
    // active_LSI();
